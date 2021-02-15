@@ -11,7 +11,7 @@ import {
 import { FaceOutlined as FaceIcon } from "@material-ui/icons";
 import { useNavigate } from "@reach/router";
 import { useUserStore } from "../../store";
-// import useAxios from "axios-hooks";
+import useAxios from "axios-hooks";
 
 const useStyles = makeStyles((theme) => ({
   popover: {

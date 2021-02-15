@@ -1,7 +1,24 @@
 import React from "react";
-
-const Content = () => {
-  return <div></div>;
+import ContentList from "./ContentList";
+import ContentText from "./ContentText";
+const Content = ({ notes, setNotes, isEditMode, isCheckboxMode }) => {
+  return (
+    <>
+      {isCheckboxMode ? (
+        <ContentList
+          notes={notes}
+          setNotes={setNotes}
+          isEditMode={isEditMode}
+        />
+      ) : (
+        <ContentText
+          notes={notes}
+          setNotes={setNotes}
+          isEditMode={isEditMode}
+        />
+      )}
+    </>
+  );
 };
 
 export default Content;
