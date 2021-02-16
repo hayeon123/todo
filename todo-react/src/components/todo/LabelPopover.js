@@ -22,7 +22,7 @@ import {
   Check,
 } from "@material-ui/icons";
 import { useLabelsStore } from "../../store";
-
+import { createLabel } from "../../data";
 const useStyles = makeStyles((theme) => ({
   popover: {
     width: theme.spacing(28),
@@ -89,7 +89,7 @@ const LabelPopover = ({ anchorEl, labels, setLabels, isOpen, onClose }) => {
   const filteredLabelItems = allLabelItems.filter(
     (labelItem) => newLabelName === "" || labelItem.name.includes(newLabelName)
   );
-  const [, createLabelExecute] = useMutation(createLabel);
+  const [, createLabelExecute] = createLabel();
   const updateLabelsForNote = (labelItem) => {
     const updatedLabelIndex = labels.findIndex(
       (selectedLabel) => selectedLabel.id === labelItem.id

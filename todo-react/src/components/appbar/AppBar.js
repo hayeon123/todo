@@ -20,6 +20,7 @@ import {
 import ProfilePopover from "./ProfilePopover";
 import SearchBar from "./SearchBar";
 import { useUserStore, useUiStore } from "../../store";
+import { updateUser } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -106,7 +107,7 @@ const AppBar = () => {
     { isDarkMode, isListView },
     { toggleDarkMode, toggleView },
   ] = useUserStore();
-  const [, updateUserSettings] = useMutation(updateUser);
+  const [, updateUserSettings] = updateUser();
   const [, { toggleNavBar }] = useUiStore();
   const onDarkModetoggle = useCallback(() => {
     updateUserSettings({ darkMode: !isDarkMode });
@@ -157,7 +158,11 @@ const AppBar = () => {
             </div>
           ) : null}
           <div>
-            <IconButton>
+            <IconButton
+              aria-label="toggle dark theme"
+              area-controls={menuId}
+              onClick={onDarkModetoggle}
+            >
               {isDarkMode ? (
                 <ToggleLightModeIcon
                   htmlColor={theme.custom.palette.iconColor}
@@ -199,6 +204,11 @@ const AppBar = () => {
             </IconButton>
           </div>
         </Toolbar>
+        <ProfilePopover
+          anchorEl={profileMenuRef.cureent}
+          isOpen={isProfilePopoverOpen}
+          onClose={() => setProfilePopoverOpen(false)}
+        />
       </MeterialAppBar>
     </div>
   );

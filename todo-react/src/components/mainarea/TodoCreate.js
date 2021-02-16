@@ -12,6 +12,7 @@ import TodoLabels from "../todo/Labels";
 import TodoContent from "../todo/Content";
 
 import { useTodosStore } from "../../store";
+import { createTodo } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
@@ -59,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 const TodoCreate = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const [, createTodoExecute] = useMuatation(createTodo);
+  const [, createTodoExecute] = createTodo();
   const [isFocussed, setFocussed] = useState(false);
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");

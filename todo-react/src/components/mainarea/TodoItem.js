@@ -6,7 +6,7 @@ import LabelsBar from "../todo/Labels";
 import ContentTitle from "../todo/ContentTitle";
 import Content from "../todo/Content";
 import { useUiStore, useTodoStore, useTodosStore } from "../../store";
-
+import { updateTodo } from "../../data";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
@@ -42,7 +42,7 @@ const TodoItem = ({ noteItem, isEditMode }) => {
   const [labels, setLabels] = useState(noteItem.labels);
   const [, { setNoteInEditMode }] = useUiStore();
   const [, dispatchTodo] = useTodosStore();
-  const [, updateTodoExecute] = useMutation(updateTodo);
+  const [, updateTodoExecute] = updateTodo();
 
   const updateColor = (color) => {
     setColor(color);

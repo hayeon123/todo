@@ -13,7 +13,7 @@ import { useTheme } from "@material-ui/core/styles";
 import ColorPopover from "./ColorPopover";
 import LabelPopover from "./LabelPopover";
 import { useTodosStore } from "../../store";
-
+import { copyTodo, deleteTodo } from "../../data";
 const useStyles = makeStyles((theme) => ({
   optionsWrapper: {
     display: "flex",
@@ -48,8 +48,8 @@ const Actions = ({
   const [isColorPopoverOpen, setColorPopoverOpen] = useState(false);
   const [isLabelPopoverOpen, setLabelPopoverOpen] = useState(false);
   const [, dispatchTodo] = useTodosStore();
-  const [, copyNoteExecute] = useMutation(copyTodo);
-  const [, deleteNoteExecute] = useMutation(deleteTodo);
+  const [, copyNoteExecute] = copyTodo();
+  const [, deleteNoteExecute] = deleteTodo();
   const copyNote = () => {
     copyNoteExecute({ id }).then(({ data }) => {
       dispatchTodo({ type: "CREATED", payload: data.copyTodo });
