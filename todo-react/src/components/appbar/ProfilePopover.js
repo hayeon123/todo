@@ -87,7 +87,7 @@ const ProfilePopover = ({ anchorEl, isOpen, onClose }) => {
         anchorEl={anchorEl}
         onClose={onClose}
         anchorOrigin={{
-          vertical: "buttom",
+          vertical: "bottom",
           horizontal: "center",
         }}
         transformOrigin={{

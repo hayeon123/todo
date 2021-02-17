@@ -39,7 +39,7 @@ const ColorPopover = ({
   anchorEl,
   currentColor,
   isOpen,
-  onclose,
+  onClose,
   onColorSelect,
 }) => {
   const classes = useStyles();
@@ -49,7 +49,7 @@ const ColorPopover = ({
   const onSelectColor = (color) => {
     setSelectedColor(color);
     onColorSelect(color);
-    onclose();
+    onClose();
   };
   return (
     <div>

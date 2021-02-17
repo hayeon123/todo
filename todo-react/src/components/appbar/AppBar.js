@@ -20,7 +20,7 @@ import {
 import ProfilePopover from "./ProfilePopover";
 import SearchBar from "./SearchBar";
 import { useUserStore, useUiStore } from "../../store";
-import { updateUser } from "../../data";
+// import { updateUser } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -107,16 +107,19 @@ const AppBar = () => {
     { isDarkMode, isListView },
     { toggleDarkMode, toggleView },
   ] = useUserStore();
-  const [, updateUserSettings] = updateUser();
+  // const updateUserSettings = updateUser({
+  //   listMode: false,
+  //   darkMode: true,
+  // });
   const [, { toggleNavBar }] = useUiStore();
   const onDarkModetoggle = useCallback(() => {
-    updateUserSettings({ darkMode: !isDarkMode });
+    // updateUserSettings({ darkMode: !isDarkMode });
     toggleDarkMode();
-  }, [updateUserSettings, toggleDarkMode, isDarkMode]);
+  }, [isDarkMode]);
   const onViewToggle = useCallback(() => {
-    updateUserSettings({ listMode: !isListView });
+    // updateUserSettings({ listMode: !isListView });
     toggleView();
-  }, [updateUserSettings, toggleView, isListView]);
+  }, [isListView]);
   return (
     <div className={classes.grow}>
       <MeterialAppBar
@@ -205,7 +208,7 @@ const AppBar = () => {
           </div>
         </Toolbar>
         <ProfilePopover
-          anchorEl={profileMenuRef.cureent}
+          anchorEl={profileMenuRef.curent}
           isOpen={isProfilePopoverOpen}
           onClose={() => setProfilePopoverOpen(false)}
         />

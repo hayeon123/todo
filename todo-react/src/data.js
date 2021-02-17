@@ -1,71 +1,85 @@
+import React, { useState } from "react";
+import todos from "./data/todo.json";
+import user from "./data/user.json";
+import labels from "./data/label.json";
 const getTodosAndLabels = () => {
-  // loadJSON("label");
-  // loadJSON("user");
-  const GetTodos = {
-    todos: {
-      id: "",
-      tiltle: "",
-      notes: {
-        text: "",
-        isCompleted: "",
-      },
-      labels: {
-        id: "",
-        name: "",
-      },
-      color: "",
-      isCheckboxMode: "",
-    },
-    labels: {
-      id: "",
-      name: "",
-    },
-    user: {
-      name: "",
-      email: "",
-      listMode: "",
-      darkMode: "",
-    },
+  let GetTodos = {
+    todos: todos,
+    labels: labels,
+    user: user,
   };
   return GetTodos;
 };
 
 const createLabel = (name) => {
-  const fs = require("fs");
-  fs.readFile("./src/data/label.json", "utf-8", function (error, data) {
-    let list = JSON.parse(data);
-    const createLabel = {
-      id: list.length + 1,
-      name: name,
-    };
-    list.push(createLabel);
-    fs.writeFileSync("./src/data/label.json", JSON.stringify(list), "utf-8");
-  });
+  // const fs = require("fs");
 };
 const createTodo = (title, notes, labels, color, isCheckboxMode) => {
-  const fs = require("fs");
-  fs.readFile("./src/data/todo.json", "utf-8", function (error, data) {
-    let list = JSON.parse(data);
-    const todo = {
-      title: title,
-      notes: notes,
-      labels: labels,
-      color: color,
-      isCheckboxMode: isCheckboxMode,
-    };
-    list.push(todo);
-    fs.writeFileSync("./src/data/todo.json", JSON.stringify(list), "utf-8");
-  });
+  // const fs = require("fs");
+  // fs.readFile("./data/todo.json", "utf-8", function (error, data) {
+  //   let list = JSON.parse(data);
+  //   const todo = {
+  //     title: title,
+  //     notes: notes,
+  //     labels: labels,
+  //     color: color,
+  //     isCheckboxMode: isCheckboxMode,
+  //   };
+  //   list.push(todo);
+  //   fs.writeFileSync("./data/todo.json", JSON.stringify(list), "utf-8");
+  // });
 };
-const deleteTodo = (id) => {};
+const deleteTodo = (id) => {
+  // const fs = require("fs");
+  // fs.readFile("./data/todo.json", "utf-8", function (error, data) {
+  //   let list = JSON.parse(data);
+  //   for (let i = 0; i < list.length; i++) {
+  //     if (list[i].id === id) {
+  //       list.splice(i, 1);
+  //     }
+  //   }
+  // });
+};
 
-const copyTodo = ({ id }) => {};
-const updateTodo = ({ id, title, notes, labels, color, isCheckboxMode }) => {};
+const copyTodo = ({ id }) => {
+  // const fs = require("fs");
+  // fs.readFile("./data/todo.json", "utf-8", function (error, data) {
+  //   let list = JSON.parse(data);
+  //   for (let i = 0; i < list.length; i++) {
+  //     if (list[i].id === id) {
+  //       list.push(list[i]);
+  //     }
+  //   }
+  //   fs.writeFileSync("./data/todo.json", JSON.stringify(list), "utf-8");
+  // });
+};
+const updateTodo = ({ id, title, notes, labels, color, isCheckboxMode }) => {
+  // const fs = require("fs");
+  // fs.readFile("./data/todo.json", "utf-8", function (error, data) {
+  //   let list = JSON.parse(data);
+  //   for (let i = 0; i < list.length; i++) {
+  //     if (list[i].id === id) {
+  //       const todo = {
+  //         title: title,
+  //         notes: notes,
+  //         labels: labels,
+  //         color: color,
+  //         isCheckboxMode: isCheckboxMode,
+  //       };
+  //       list[i] = todo;
+  //     }
+  //   }
+  //   fs.writeFileSync("./data/todo.json", JSON.stringify(list), "utf-8");
+  // });
+};
 
-const updateUser = ({ listMode, darkMode }) => {};
+const updateUser = ({ listMode, darkMode }) => {
+  user.listMode = listMode;
+  user.darkMode = darkMode;
+};
 
-const subscribeTodos = ({}) => {};
-const subscribeLabels = ({}) => {};
+// const subscribeTodos = ({}) => {};
+// const subscribeLabels = ({}) => {};
 
 export {
   getTodosAndLabels,
@@ -75,6 +89,4 @@ export {
   copyTodo,
   updateTodo,
   updateUser,
-  subscribeTodos,
-  subscribeLabels,
 };

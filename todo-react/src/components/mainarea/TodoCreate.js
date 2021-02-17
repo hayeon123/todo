@@ -12,7 +12,7 @@ import TodoLabels from "../todo/Labels";
 import TodoContent from "../todo/Content";
 
 import { useTodosStore } from "../../store";
-import { createTodo } from "../../data";
+// import { createTodo } from "../../data";
 
 const useStyles = makeStyles((theme) => ({
   paperWrapper: {
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 const TodoCreate = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const [, createTodoExecute] = createTodo();
+  // const [, createTodoExecute] = createTodo();
   const [isFocussed, setFocussed] = useState(false);
   const [title, setTitle] = useState("");
   const [notes, setNotes] = useState("");
@@ -72,14 +72,15 @@ const TodoCreate = () => {
     const noteTexts = notes.map((noteItem) => noteItem.text);
     const labelIds = labels.map((labelItem) => labelItem.id);
     if (title || noteTexts.length > 0) {
-      createTodoExecute({
-        title,
-        notes: noteTexts,
-        labels: labelIds,
-        color,
-        isCheckboxMode,
-      }).then(({ data }) => {
-        dispatchTodo({ type: "CREATE", payload: data.createTodo });
+      dispatchTodo({
+        type: "CREATE",
+        payload: {
+          title,
+          notes: noteTexts,
+          labels: labelIds,
+          color,
+          isCheckboxMode,
+        },
       });
     }
     setTitle("");

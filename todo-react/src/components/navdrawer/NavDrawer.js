@@ -61,7 +61,7 @@ const NavDrawer = () => {
         <DrawerItem
           text={"Notes"}
           isSelected={selectedLabelId === ""}
-          icon={<IdeaIcon htemlColor={theme.custom.palette.iconColor} />}
+          icon={<IdeaIcon htmlColor={theme.custom.palette.iconColor} />}
           onClick={() => onDrawerItemSelected("")}
         />
       </List>
@@ -76,7 +76,7 @@ const NavDrawer = () => {
           <DrawerItem
             key={labelItem.id}
             text={labelItem.name}
-            icon={<LabelIcon htemlColor={theme.custom.palette.iconColor} />}
+            icon={<LabelIcon htmlColor={theme.custom.palette.iconColor} />}
             isSelected={selectedLabelId === labelItem.id}
             onClick={() => onDrawerItemSelected(labelItem.id)}
           />

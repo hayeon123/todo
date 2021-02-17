@@ -6,7 +6,7 @@ import LabelsBar from "../todo/Labels";
 import ContentTitle from "../todo/ContentTitle";
 import Content from "../todo/Content";
 import { useUiStore, useTodoStore, useTodosStore } from "../../store";
-import { updateTodo } from "../../data";
+// import { updateTodo } from "../../data";
 const useStyles = makeStyles((theme) => ({
   wrapper: {
     display: "flex",
@@ -42,7 +42,7 @@ const TodoItem = ({ noteItem, isEditMode }) => {
   const [labels, setLabels] = useState(noteItem.labels);
   const [, { setNoteInEditMode }] = useUiStore();
   const [, dispatchTodo] = useTodosStore();
-  const [, updateTodoExecute] = updateTodo();
+  // const [, updateTodoExecute] = updateTodo();
 
   const updateColor = (color) => {
     setColor(color);
@@ -61,19 +61,21 @@ const TodoItem = ({ noteItem, isEditMode }) => {
     setNoteInEditMode("");
   };
   const updateTodoItem = (todoItem) => {
-    updateTodoExecute({
-      id: noteItem.id,
-      title: todoItem.title || title,
-      note:
-        todoItem.note ||
-        noteinputs.map((note) => {
-          return { text: note.text, isCompleted: note.isCompleted };
-        }),
-      color: todoItem.color || color,
-      isCheckboxMode: todoItem.isCheckboxMode || isCheckboxMode,
-      labels: todoItem.labels || labels.map((label) => label.id),
-    }).them(({ data }) => {
-      dispatchTodo({ type: "UPDATED", payload: data.updateTodo });
+    console.log(todoItem);
+    dispatchTodo({
+      type: "UPDATED",
+      payload: {
+        id: noteItem.id,
+        title: todoItem.title || title,
+        note:
+          todoItem.note ||
+          noteinputs.map((note) => {
+            return { text: note.text, isCompleted: note.isCompleted };
+          }),
+        color: todoItem.color || color,
+        isCheckboxMode: todoItem.isCheckboxMode || isCheckboxMode,
+        labels: todoItem.labels,
+      },
     });
   };
   return (

@@ -13,7 +13,7 @@ import { useTheme } from "@material-ui/core/styles";
 import ColorPopover from "./ColorPopover";
 import LabelPopover from "./LabelPopover";
 import { useTodosStore } from "../../store";
-import { copyTodo, deleteTodo } from "../../data";
+// import { copyTodo, deleteTodo } from "../../data";
 const useStyles = makeStyles((theme) => ({
   optionsWrapper: {
     display: "flex",
@@ -47,19 +47,29 @@ const Actions = ({
   const refActionLabel = useRef();
   const [isColorPopoverOpen, setColorPopoverOpen] = useState(false);
   const [isLabelPopoverOpen, setLabelPopoverOpen] = useState(false);
-  const [, dispatchTodo] = useTodosStore();
-  const [, copyNoteExecute] = copyTodo();
-  const [, deleteNoteExecute] = deleteTodo();
+  const [todos, dispatchTodo] = useTodosStore();
+  // const [, copyNoteExecute] = copyTodo();
+  // const [, deleteNoteExecute] = deleteTodo();
   const copyNote = () => {
-    copyNoteExecute({ id }).then(({ data }) => {
-      dispatchTodo({ type: "CREATED", payload: data.copyTodo });
+    let data;
+    todos.forEach((todo) => {
+      if (todo.id === id) {
+        data = todo;
+      }
     });
+    // copyNoteExecute({ id }).then(({ data }) => {
+    dispatchTodo({ type: "CREATED", payload: data });
+    // });
   };
 
   const deleteNote = () => {
-    deleteNoteExecute({ id }).then(({ data }) => {
-      dispatchTodo({ type: "DELETED", payload: data.deleteTodo });
+    let data;
+    todos.forEach((todo) => {
+      if (todo.id === id) {
+        data = todo;
+      }
     });
+    dispatchTodo({ type: "DELETED", payload: data });
   };
   return (
     <>

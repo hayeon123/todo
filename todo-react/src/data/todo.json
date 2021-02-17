@@ -1,22 +1,18 @@
 [
   {
-    "todo": {
-      "id": "1",
-      "title": "first todo",
-      "notes": { "text": "first", "isCompleted": true }
-    },
-    "labels": { "id": "1", "name": "first" },
-    "color": "default",
-    "isCheckboxMode": true
+    "id": "1",
+    "title": "first todo",
+    "notes": [
+      { "text": "first", "isCompleted": true },
+      { "text": "first", "isCompleted": true }
+    ]
   },
   {
-    "todo": {
-      "id": "2",
-      "title": "seconde todo",
-      "notes": { "text": "seconde", "isCompleted": true }
-    },
-    "labels": { "id": "2", "name": "seconde" },
-    "color": "default",
-    "isCheckboxMode": true
+    "id": "2",
+    "title": "seconde todo",
+    "notes": [
+      { "text": "seconde", "isCompleted": true },
+      { "text": "first", "isCompleted": true }
+    ]
   }
 ]

@@ -22,7 +22,7 @@ import {
   Check,
 } from "@material-ui/icons";
 import { useLabelsStore } from "../../store";
-import { createLabel } from "../../data";
+// import { createLabel } from "../../data";
 const useStyles = makeStyles((theme) => ({
   popover: {
     width: theme.spacing(28),
@@ -89,7 +89,7 @@ const LabelPopover = ({ anchorEl, labels, setLabels, isOpen, onClose }) => {
   const filteredLabelItems = allLabelItems.filter(
     (labelItem) => newLabelName === "" || labelItem.name.includes(newLabelName)
   );
-  const [, createLabelExecute] = createLabel();
+  // const [label, createLabelExecute] = createLabel();
   const updateLabelsForNote = (labelItem) => {
     const updatedLabelIndex = labels.findIndex(
       (selectedLabel) => selectedLabel.id === labelItem.id
@@ -102,9 +102,12 @@ const LabelPopover = ({ anchorEl, labels, setLabels, isOpen, onClose }) => {
     setLabels(Object.assign([], labels));
   };
   const onCreateTodoClick = () => {
-    createLabelExecute({ name: newLabelName }).then(({ data }) => {
-      dispatchLabel({ type: "CREATED", payload: data.createLabel });
+    // createLabelExecute({ name: newLabelName }).then(({ data }) => {
+    dispatchLabel({
+      type: "CREATED",
+      payload: { id: labels.length, name: newLabelName },
     });
+    // });
     setNewLabelName("");
   };
   return (
@@ -162,9 +165,9 @@ const LabelPopover = ({ anchorEl, labels, setLabels, isOpen, onClose }) => {
                       checkedIcon={<CheckboxIcon fontSize="samll" />}
                       color="default"
                       disableRipple
-                      checked={labels.some(
-                        (label) => label.id === labelItem.id
-                      )}
+                      // checked={labels.some(
+                      //   (label) => label.id === labelItem.id
+                      // )}
                       inputProps={{ "aria-labelledby": labelAriaId }}
                       size="small"
                       classes={{ root: classes.checkboxRoot }}
