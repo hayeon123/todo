@@ -23,7 +23,7 @@ const createTodo = (title, notes, labels, color, isCheckboxMode) => {
   //     notes: notes,
   //     labels: labels,
   //     color: color,
-  //     isCheckboxMode: isCheckboxMode,
+  //     isMode: isCheckboxMode,
   //   };
   //   list.push(todo);
   //   fs.writeFileSync("./data/todo.json", JSON.stringify(list), "utf-8");

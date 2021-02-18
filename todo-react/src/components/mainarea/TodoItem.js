@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Fade, ClickAwayListener, useTheme } from "@material-ui/core";
-import ActionBar from "../todo/Actions";
+import Actions from "../todo/Actions";
 import LabelsBar from "../todo/Labels";
 import ContentTitle from "../todo/ContentTitle";
 import Content from "../todo/Content";
@@ -43,7 +43,7 @@ const TodoItem = ({ noteItem, isEditMode }) => {
   const [, { setNoteInEditMode }] = useUiStore();
   const [, dispatchTodo] = useTodosStore();
   // const [, updateTodoExecute] = updateTodo();
-
+  console.log(noteItem);
   const updateColor = (color) => {
     setColor(color);
     updateTodoItem({ color });
@@ -61,7 +61,6 @@ const TodoItem = ({ noteItem, isEditMode }) => {
     setNoteInEditMode("");
   };
   const updateTodoItem = (todoItem) => {
-    console.log(todoItem);
     dispatchTodo({
       type: "UPDATED",
       payload: {
@@ -106,7 +105,7 @@ const TodoItem = ({ noteItem, isEditMode }) => {
       <LabelsBar labels={labels} />
       <Fade in={isHovered || isEditMode}>
         <div className={classes.barWrapper}>
-          <ActionBar
+          <Actions
             id={noteItem.id}
             color={color}
             setColor={updateColor}

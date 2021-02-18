@@ -55,8 +55,10 @@ const Actions = ({
     todos.forEach((todo) => {
       if (todo.id === id) {
         data = todo;
+        console.log("data===", data);
       }
     });
+
     // copyNoteExecute({ id }).then(({ data }) => {
     dispatchTodo({ type: "CREATED", payload: data });
     // });

@@ -9,9 +9,11 @@ const reducer = (state = [], action = {}) => {
   if (!mutatedItem) {
     return;
   }
+  console.log("action===================", action);
   const mutatedIndex = state.findIndex((item) => item.id === mutatedItem.id);
   switch (action.type) {
     case "CREATED":
+      console.log("mutatedIndex=====", mutatedIndex);
       if (mutatedIndex < 0) {
         state.push(mutatedItem);
       }

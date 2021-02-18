@@ -42,8 +42,8 @@ const MainComponent = ({ todos, labels, user }) => {
 };
 const ThemeControlledComponent = () => {
   const [{ isDarkMode }] = useUserStore();
-  const [, dispatchTodo] = useTodosStore();
-  const [, dispatchLabel] = useLabelsStore();
+  // const [, dispatchTodo] = useTodosStore();
+  // const [, dispatchLabel] = useLabelsStore();
   // const handleSubscribeTodos = (_, data) => {
   //   if (data && data.todoStream) {
   //     dispatchTodo({

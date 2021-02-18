@@ -7,9 +7,9 @@ import {
   Button,
   Collapse,
 } from "@material-ui/core";
-import TodoActions from "../todo/Actions";
+import Actions from "../todo/Actions";
 import TodoLabels from "../todo/Labels";
-import TodoContent from "../todo/Content";
+import Content from "../todo/Content";
 
 import { useTodosStore } from "../../store";
 // import { createTodo } from "../../data";
@@ -63,26 +63,30 @@ const TodoCreate = () => {
   // const [, createTodoExecute] = createTodo();
   const [isFocussed, setFocussed] = useState(false);
   const [title, setTitle] = useState("");
-  const [notes, setNotes] = useState("");
+  const [notes, setNotes] = useState([]);
   const [color, setColor] = useState("default");
   const [isCheckboxMode, setCheckboxMode] = useState(false);
   const [labels, setLabels] = useState([]);
-  const [, dispatchTodo] = useTodosStore();
+  const [todos, dispatchTodo] = useTodosStore();
+  const [id, setId] = useState(todos.length + 1);
+
   const onCloseClick = () => {
     const noteTexts = notes.map((noteItem) => noteItem.text);
     const labelIds = labels.map((labelItem) => labelItem.id);
     if (title || noteTexts.length > 0) {
       dispatchTodo({
-        type: "CREATE",
+        type: "CREATED",
         payload: {
-          title,
+          id: id,
+          title: title,
           notes: noteTexts,
           labels: labelIds,
-          color,
-          isCheckboxMode,
+          color: color,
+          isCheckboxMode: isCheckboxMode,
         },
       });
     }
+    setId(todos.length + 1);
     setTitle("");
     setNotes([]);
     setColor("default");
@@ -113,7 +117,7 @@ const TodoCreate = () => {
           onChange={(event) => setTitle(event.target.value)}
         />
         {isFocussed ? (
-          <TodoContent
+          <Content
             notes={notes}
             setNotes={setNotes}
             isEditMode={true}
@@ -122,8 +126,8 @@ const TodoCreate = () => {
         ) : null}
         <TodoLabels labels={labels} />
         <div className={classes.barWrapper}>
-          <TodoActions
-            id={""}
+          <Actions
+            id={id}
             color={color}
             setColor={setColor}
             labels={labels}

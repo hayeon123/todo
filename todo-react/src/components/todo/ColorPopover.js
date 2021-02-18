@@ -58,11 +58,11 @@ const ColorPopover = ({
         open={isOpen}
         anchorEl={anchorEl}
         anchorOrigin={{
-          vetical: "top",
+          vertical: "top",
           horizontal: "left",
         }}
         transformOrigin={{
-          varitical: "bottom",
+          vertical: "bottom",
           horizontal: "left",
         }}
         classes={{

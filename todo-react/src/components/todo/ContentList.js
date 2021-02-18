@@ -58,7 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// eslint-disable-next-line import/no-anonymous-default-export
 const ContentList = ({ notes, setNotes, isEditMode }) => {
   const onTextChange = (index, text) => {
     const updatedNoteItems = Object.assign([], notes);

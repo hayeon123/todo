@@ -116,7 +116,6 @@ function NotesArea() {
                 sytle={{ width: isMobile || isListView ? "100%" : null }}
               >
                 <TodoItem
-                  key={noteItem.id}
                   noteItem={noteItem}
                   isEditMode={noteInEditMode === noteItem.id}
                 />

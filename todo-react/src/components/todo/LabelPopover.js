@@ -162,12 +162,12 @@ const LabelPopover = ({ anchorEl, labels, setLabels, isOpen, onClose }) => {
                     <Checkbox
                       tabIndex={-1}
                       icon={<CheckboxBlankIcon fontSize="small" />}
-                      checkedIcon={<CheckboxIcon fontSize="samll" />}
+                      checkedIcon={<CheckboxIcon fontSize="small" />}
                       color="default"
                       disableRipple
-                      // checked={labels.some(
-                      //   (label) => label.id === labelItem.id
-                      // )}
+                      checked={labels.some(
+                        (label) => label.id === labelItem.id
+                      )}
                       inputProps={{ "aria-labelledby": labelAriaId }}
                       size="small"
                       classes={{ root: classes.checkboxRoot }}

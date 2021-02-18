@@ -3,9 +3,15 @@
     "id": "1",
     "title": "first todo",
     "notes": [
-      { "text": "first", "isCompleted": true },
-      { "text": "first", "isCompleted": true }
-    ]
+      { "text": "first", "isCompleted": false },
+      { "text": "first", "isCompleted": false }
+    ],
+    "labels": [
+      { "id": "1", "name": "first" },
+      { "id": 2, "name": "spdla" }
+    ],
+    "color": "red",
+    "isCheckboxMode": false
   },
   {
     "id": "2",
@@ -13,6 +19,12 @@
     "notes": [
       { "text": "seconde", "isCompleted": true },
       { "text": "first", "isCompleted": true }
-    ]
+    ],
+    "labels": [
+      { "id": "1", "name": "first" },
+      { "id": 3, "name": "할일" }
+    ],
+    "color": "yellow",
+    "isCheckboxMode": true
   }
 ]
