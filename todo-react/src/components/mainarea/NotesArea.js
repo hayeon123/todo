@@ -22,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
   },
   todoCreateContainer: {
-    display: "fles",
-    padding: theme.spacing(4.0),
+    display: "flex",
+    padding: theme.spacing(4, 0),
     margin: theme.spacing(0, 1),
   },
   todoCreateWrapper: {
@@ -31,17 +31,17 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: theme.spacing(75),
     margin: "0 auto",
   },
-  todoWrapper: {
+  todosWrapper: {
     margin: "0 auto",
     columnWidth: theme.spacing(29),
     columnGap: "0.5rem",
   },
   todoWrapper: {
     width: theme.spacing(29),
-    margin: "0 auto ",
+    margin: "0 auto",
     breakInside: "avoid",
     pageBreakInside: "avoid",
-    padding: "0.5rem 0 ",
+    padding: "0.5rem 0",
     transition: theme.transitions.create("all", {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.standard,
@@ -102,7 +102,7 @@ function NotesArea() {
           </div>
         </div>
         <div
-          className={classes.todoWrapper}
+          className={classes.todosWrapper}
           style={{
             columnCount: isListView ? 1 : numberOfColumns,
             width: width,
