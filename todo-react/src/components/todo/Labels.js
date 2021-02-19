@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     padding: theme.spacing(0, 1.25),
   },
-  LabelsWrapper: {
+  LabelWrapper: {
     padding: theme.spacing(0.36, 0.5),
   },
   label: {
