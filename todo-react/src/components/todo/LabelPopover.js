@@ -105,7 +105,7 @@ const LabelPopover = ({ anchorEl, labels, setLabels, isOpen, onClose }) => {
     // createLabelExecute({ name: newLabelName }).then(({ data }) => {
     dispatchLabel({
       type: "CREATED",
-      payload: { id: labels.length, name: newLabelName },
+      payload: { id: allLabelItems.length + 1, name: newLabelName },
     });
     // });
     setNewLabelName("");

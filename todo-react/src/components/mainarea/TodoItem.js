@@ -43,7 +43,6 @@ const TodoItem = ({ noteItem, isEditMode }) => {
   const [, { setNoteInEditMode }] = useUiStore();
   const [, dispatchTodo] = useTodosStore();
   // const [, updateTodoExecute] = updateTodo();
-  console.log(noteItem);
   const updateColor = (color) => {
     setColor(color);
     updateTodoItem({ color });

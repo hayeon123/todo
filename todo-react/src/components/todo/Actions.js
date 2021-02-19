@@ -55,13 +55,10 @@ const Actions = ({
     todos.forEach((todo) => {
       if (todo.id === id) {
         data = todo;
-        console.log("data===", data);
       }
     });
-
-    // copyNoteExecute({ id }).then(({ data }) => {
+    data.id = todos.length + 1;
     dispatchTodo({ type: "CREATED", payload: data });
-    // });
   };
 
   const deleteNote = () => {

@@ -71,15 +71,18 @@ const TodoCreate = () => {
   const [id, setId] = useState(todos.length + 1);
 
   const onCloseClick = () => {
-    const noteTexts = notes.map((noteItem) => noteItem.text);
+    let noteList = [];
+    notes.map((noteItem) =>
+      noteList.push({ text: noteItem.text, isCompleted: false })
+    );
     const labelIds = labels.map((labelItem) => labelItem.id);
-    if (title || noteTexts.length > 0) {
+    if (title || noteList.length > 0) {
       dispatchTodo({
         type: "CREATED",
         payload: {
           id: id,
           title: title,
-          notes: noteTexts,
+          notes: noteList,
           labels: labelIds,
           color: color,
           isCheckboxMode: isCheckboxMode,

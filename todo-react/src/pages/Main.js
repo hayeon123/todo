@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppBar from "../components/appbar/AppBar";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
@@ -42,8 +42,10 @@ const MainComponent = ({ todos, labels, user }) => {
 };
 const ThemeControlledComponent = () => {
   const [{ isDarkMode }] = useUserStore();
-  // const [, dispatchTodo] = useTodosStore();
-  // const [, dispatchLabel] = useLabelsStore();
+  // const [todos, dispatchTodo] = useTodosStore();
+  // const [labels, dispatchLabel] = useLabelsStore();
+  // const fs = require("browserify-fs");
+  // useEffect(() => {}, [todos]);
   // const handleSubscribeTodos = (_, data) => {
   //   if (data && data.todoStream) {
   //     dispatchTodo({
