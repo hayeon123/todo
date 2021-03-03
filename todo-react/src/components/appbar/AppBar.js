@@ -208,7 +208,7 @@ const AppBar = () => {
           </div>
         </Toolbar>
         <ProfilePopover
-          anchorEl={profileMenuRef.curent}
+          anchorEl={profileMenuRef.current}
           isOpen={isProfilePopoverOpen}
           onClose={() => setProfilePopoverOpen(false)}
         />

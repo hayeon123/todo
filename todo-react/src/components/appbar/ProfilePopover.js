@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.custom.fontFamily.metropolis,
     borderRadius: theme.spacing(0.5),
     padding: theme.spacing(0.5, 2),
-    fongSize: "0.8rem",
+    fontSize: "0.8rem",
     fontWeight: 500,
     textTransform: "none",
   },
@@ -130,7 +130,7 @@ const ProfilePopover = ({ anchorEl, isOpen, onClose }) => {
             disabled={loading}
             variant="outlined"
             size="small"
-            onclick={doLogout}
+            onClick={doLogout}
             classes={{ root: classes.buttonSignout }}
           >
             Sgin out
