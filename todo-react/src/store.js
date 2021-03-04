@@ -91,3 +91,27 @@ export const useTodosStore = () => useContext(TodosContext);
 export const useLabelsStore = () => useContext(LabelsContext);
 export const useUserStore = () => useContext(UserContext);
 export const useUiStore = () => useContext(UiContext);
+
+const apiReducer = (state, action) => {
+  switch (action.type) {
+    case "LOADING":
+      return {
+        loading: true,
+        data: null,
+        erorr: null,
+      };
+    case "SUCCESS":
+      return {
+        loading: false,
+        data: action.data,
+        error: null,
+      };
+    case "ERROR":
+      return {
+        loading: false,
+        data: null,
+        error: action.error,
+      };
+    default:
+  }
+};

@@ -12,10 +12,10 @@
   {
     "todo": {
       "id": "2",
-      "title": "seconde todo",
-      "notes": { "text": "seconde", "isCompleted": true }
+      "title": "second todo",
+      "notes": { "text": "second", "isCompleted": true }
     },
-    "labels": { "id": "2", "name": "seconde" },
+    "labels": { "id": "2", "name": "second" },
     "color": "default",
     "isCheckboxMode": true
   }

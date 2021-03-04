@@ -2,7 +2,7 @@ import React from "react";
 import { Router } from "@reach/router";
 import { light } from "./theme";
 import Main from "./pages/Main";
-import { ThemeProvider, CssBaseline } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/core";
 
 function App() {
   return (

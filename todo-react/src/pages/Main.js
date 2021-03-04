@@ -16,9 +16,12 @@ import {
 } from "../store";
 import { dark, light } from "../theme";
 import { ThemeProvider, CssBaseline } from "@material-ui/core";
-import { getTodosAndLabels } from "../data";
+import { getTodos, getTodosAndLabels } from "../data";
+
+// App.js에서 호출하는 컴포넌트 실제 data
 const Main = ({ navigate }) => {
   const data = getTodosAndLabels();
+  console.log(getTodos());
   if (data) {
     return (
       <MainComponent todos={data.todos} labels={data.labels} user={data.user} />
@@ -27,6 +30,8 @@ const Main = ({ navigate }) => {
     return <Loading />;
   }
 };
+
+//data를 각각의 Provider에 넣음
 const MainComponent = ({ todos, labels, user }) => {
   return (
     <TodosProvider todos={todos}>
@@ -40,28 +45,12 @@ const MainComponent = ({ todos, labels, user }) => {
     </TodosProvider>
   );
 };
+
+// Ui 설정
 const ThemeControlledComponent = () => {
   const [{ isDarkMode }] = useUserStore();
   // const [todos, dispatchTodo] = useTodosStore();
-  // const [labels, dispatchLabel] = useLabelsStore();
-  // const fs = require("browserify-fs");
-  // useEffect(() => {}, [todos]);
-  // const handleSubscribeTodos = (_, data) => {
-  //   if (data && data.todoStream) {
-  //     dispatchTodo({
-  //       type: data.todoStream.action,
-  //       payload: data.todoStream.todo,
-  //     });
-  //   }
-  // };
-  // const handleSubscribeLabels = (_, data) => {
-  //   if (data && data.labelStream) {
-  //     dispatchLabel({
-  //       type: data.labelStream.action,
-  //       payload: data.labelStream.todo,
-  //     });
-  //   }
-  // };
+
   return (
     <ThemeProvider theme={isDarkMode ? dark : light}>
       <CssBaseline />

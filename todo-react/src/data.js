@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import todos from "./data/todo.json";
 import user from "./data/user.json";
 import labels from "./data/label.json";
+import axios from "axios";
 const getTodosAndLabels = () => {
   let GetTodos = {
     todos: todos,
@@ -9,6 +10,24 @@ const getTodosAndLabels = () => {
     user: user,
   };
   return GetTodos;
+};
+const getTodos = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/todos");
+    return response.data;
+  } catch (e) {}
+};
+const getLabels = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/label");
+    return response.data;
+  } catch (e) {}
+};
+const getUser = async () => {
+  try {
+    const response = await axios.get("http://localhost:5000/users");
+    return response.data;
+  } catch (e) {}
 };
 
 const createLabel = (name) => {
@@ -89,4 +108,5 @@ export {
   copyTodo,
   updateTodo,
   updateUser,
+  getTodos,
 };

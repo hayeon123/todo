@@ -8,7 +8,7 @@ import {
   Collapse,
 } from "@material-ui/core";
 import Actions from "../todo/Actions";
-import TodoLabels from "../todo/Labels";
+import Labels from "../todo/Labels";
 import Content from "../todo/Content";
 
 import { useTodosStore } from "../../store";
@@ -75,7 +75,6 @@ const TodoCreate = () => {
     notes.map((noteItem) =>
       noteList.push({ text: noteItem.text, isCompleted: false })
     );
-    const labelIds = labels.map((labelItem) => labelItem.id);
     if (title || noteList.length > 0) {
       dispatchTodo({
         type: "CREATED",
@@ -83,7 +82,7 @@ const TodoCreate = () => {
           id: id,
           title: title,
           notes: noteList,
-          labels: labelIds,
+          labels: labels,
           color: color,
           isCheckboxMode: isCheckboxMode,
         },
@@ -127,7 +126,7 @@ const TodoCreate = () => {
             isCheckboxMode={isCheckboxMode}
           />
         ) : null}
-        <TodoLabels labels={labels} />
+        <Labels labels={labels} />
         <div className={classes.barWrapper}>
           <Actions
             id={id}

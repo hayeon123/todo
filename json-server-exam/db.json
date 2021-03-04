@@ -16,9 +16,9 @@
     },
     {
       "id": "2",
-      "title": "seconde todo",
+      "title": "second todo",
       "notes": [
-        { "text": "seconde", "isCompleted": true },
+        { "text": "second", "isCompleted": true },
         { "text": "first", "isCompleted": true }
       ],
       "labels": [
